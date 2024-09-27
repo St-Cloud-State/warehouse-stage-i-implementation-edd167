@@ -8,8 +8,8 @@ public class Client implements Serializable {
   private String id;
   private static final String CLIENT_STRING = "M";
   private static int idNum = 1;
-  private List productOnWishList = new LinkedList();
-  private List productOnWaitList = new LinkedList();
+  private List productsOnWishList = new LinkedList();
+  private List productsOnWaitList = new LinkedList();
   private List transactions = new LinkedList();
   public  Client (String name, String address, String phone) {
     this.name = name;
