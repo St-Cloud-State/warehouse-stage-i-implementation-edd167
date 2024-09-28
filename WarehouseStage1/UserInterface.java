@@ -4,12 +4,12 @@ import java.io.*;
 public class UserInterface {
   private static UserInterface userInterface;
   private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-  private static Library library;
+  private static Warehouse Warehouse;
   private static final int EXIT = 0;
   private static final int ADD_CLIENT = 1;
-  private static final int ADD_PRODUCTS = 2;
-  private static final int ISSUE_BOOKS = 3;
-  private static final int RETURN_BOOKS = 4;
+  private static final int ADD_PRODUCT_TO WISHLIST= 2;
+  private static final int DISPLAY_ALL_CLIENTS= 3;
+  private static final int DISPLAY_PRODUCTS_IN_WISHLIST = 4;
   private static final int RENEW_BOOKS = 5;
   private static final int REMOVE_BOOKS = 6;
   private static final int PLACE_HOLD = 7;
@@ -25,7 +25,7 @@ public class UserInterface {
     if (yesOrNo("Look for saved data and  use it?")) {
       retrieve();
     } else {
-      library = Library.instance();
+      warehouse = Warehouse.instance();
     }
   }
   public static UserInterface instance() {
@@ -113,19 +113,19 @@ public class UserInterface {
     System.out.println(HELP + " for help");
   }
 
-  public void addMember() {
-    String name = getToken("Enter member name");
+  public void addClient() {
+    String name = getToken("Enter client name");
     String address = getToken("Enter address");
     String phone = getToken("Enter phone");
-    Member result;
-    result = library.addMember(name, address, phone);
+    Client result;
+    result = warehouse.addClient(name, address, phone);
     if (result == null) {
-      System.out.println("Could not add member");
+      System.out.println("Could not add client");
     }
     System.out.println(result);
   }
 
-  public void addBooks() {
+ public void addBooks() {
     Book result;
     do {
       String title = getToken("Enter  title");
@@ -157,11 +157,11 @@ public class UserInterface {
       }
   }
 
-  public void showMembers() {
-      Iterator allMembers = library.getMembers();
-      while (allMembers.hasNext()){
-	  Member member = (Member)(allMembers.next());
-          System.out.println(member.toString());
+  public void showClients() {
+      Iterator allClients = warehouse.getClients();
+      while (allClients.hasNext()){
+	  Client client = (Client)(allClients.next());
+          System.out.println(client.toString());
       }
   }
 
@@ -184,21 +184,21 @@ public class UserInterface {
       System.out.println("Dummy Action");   
   }
   private void save() {
-    if (library.save()) {
-      System.out.println(" The library has been successfully saved in the file LibraryData \n" );
+    if (warehouse.save()) {
+      System.out.println(" The warehouse has been successfully saved in the file WarehouseData \n" );
     } else {
       System.out.println(" There has been an error in saving \n" );
     }
   }
   private void retrieve() {
     try {
-      Library tempLibrary = Library.retrieve();
+      Warehouse tempWarehouse = Warehouse.retrieve();
       if (tempLibrary != null) {
-        System.out.println(" The library has been successfully retrieved from the file LibraryData \n" );
-        library = tempLibrary;
+        System.out.println(" The Warehouse has been successfully retrieved from the file WarehouseData \n" );
+        warehouse = tempWarehouse;
       } else {
-        System.out.println("File doesnt exist; creating new library" );
-        library = Library.instance();
+        System.out.println("File doesnt exist; creating new warehouse" );
+        warehouse = Warehouse.instance();
       }
     } catch(Exception cnfe) {
       cnfe.printStackTrace();
@@ -209,9 +209,9 @@ public class UserInterface {
     help();
     while ((command = getCommand()) != EXIT) {
       switch (command) {
-        case ADD_MEMBER:        addMember();
+        case ADD_MEMBER:        addClient();
                                 break;
-        case ADD_BOOKS:         addBooks();
+        case ADD_PRODUCTS:         addProducts();
                                 break;
         case ISSUE_BOOKS:       issueBooks();
                                 break;
@@ -233,9 +233,9 @@ public class UserInterface {
                                 break;
         case RETRIEVE:          retrieve();
                                 break;
-        case SHOW_MEMBERS:	showMembers();
+        case SHOW_CLIENTS:	showClients();
                                 break; 		
-        case SHOW_BOOKS:	showBooks();
+        case DISPLAY_PRODUCTS:	showProducts();
                                 break; 		
         case HELP:              help();
                                 break;
