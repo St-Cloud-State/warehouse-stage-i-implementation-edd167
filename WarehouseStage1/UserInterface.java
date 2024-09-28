@@ -6,8 +6,8 @@ public class UserInterface {
   private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
   private static Library library;
   private static final int EXIT = 0;
-  private static final int ADD_MEMBER = 1;
-  private static final int ADD_BOOKS = 2;
+  private static final int ADD_CLIENT = 1;
+  private static final int ADD_PRODUCTS = 2;
   private static final int ISSUE_BOOKS = 3;
   private static final int RETURN_BOOKS = 4;
   private static final int RENEW_BOOKS = 5;
