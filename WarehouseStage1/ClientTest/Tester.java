@@ -63,6 +63,9 @@ public class Tester {
      c2.addProductToWishlist(product3,5);
      System.out.println(product3.getName() + " should be c2 name");
      System.out.println(product3.getPhone() + " should be c2 phone");
+     c2.addProductToWishlist(product2,6);
+     System.out.println(c2.displayWishlist()+"should be product2 and product1");
+     System.out.println(product2.getPhone() + " should be phone number of c2");
      Iterator clients = clientList.getAllClients();
      System.out.println("List of all clients");
      while (clients.hasNext()){
