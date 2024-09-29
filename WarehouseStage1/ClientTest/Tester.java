@@ -32,7 +32,7 @@ public class Tester {
 	
      Client c1 = new Client("edwin", "1st ave NE", "673837");
      Client c2 = new Client("Ian", "2nd Ave SE", "26538303");
-     
+     Client c3 =new Client ("maikara","3rd st N","53983890");
 	 if (yesOrNo("Would you like to load the ClientList")) {
 		try {
 			FileInputStream file = new FileInputStream("ClientListData");
@@ -49,15 +49,17 @@ public class Tester {
      ClientList clientList = ClientList.instance();
 	 clientList.insertClient(c1);
      clientList.insertClient(c2);
+     clientList.insertClient(c2);
       Product product1 = new Product("P101", "Laptop", 1500.00);
       Product product2 = new Product("P102", "Smartphone", 800.00);
       Product product3 = new Product("P103", "Headphones", 200.00);
        
        // Adding products to the wishlist
+       wishList wishList= new wishList.instance();
         wishList.addProductToWishlist(product1, 1);  // Adding 1 Laptop
         wishList.addProductToWishlist(product2, 2);  // Adding 2 Smartphones
         wishList.addProductToWishlist(product1, 1);  // Adding 1 more Laptop
-        
+
      System.out.println(c1.getName() + " should be null");
      b1.issue(c1); 
      System.out.println(c1.getPhone() + " should be m1");
