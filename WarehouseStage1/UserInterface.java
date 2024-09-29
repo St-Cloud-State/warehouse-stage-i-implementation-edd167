@@ -96,18 +96,18 @@ public class UserInterface {
   public void help() {
     System.out.println("Enter a number between 0 and 12 as explained below:");
     System.out.println(EXIT + " to Exit\n");
-    System.out.println(ADD_MEMBER + " to add a member");
-    System.out.println(ADD_BOOKS + " to  add books");
-    System.out.println(ISSUE_BOOKS + " to  issue books to a  member");
-    System.out.println(RETURN_BOOKS + " to  return books ");
+    System.out.println(ADD_CLIENT + " to add a member");
+    System.out.println(ADD_PRODUCT_TO_WISHlIST + " to  add books");
+    System.out.println(DISPLAY_ALL_CLIENTS + " to  issue books to a  member");
+    System.out.println(DISPLAY_PRODUCTS_IN_WISHLIST + " to  return books ");
     System.out.println(RENEW_BOOKS + " to  renew books ");
     System.out.println(REMOVE_BOOKS + " to  remove books");
     System.out.println(PLACE_HOLD + " to  place a hold on a book");
     System.out.println(REMOVE_HOLD + " to  remove a hold on a book");
     System.out.println(PROCESS_HOLD + " to  process holds");
     System.out.println(GET_TRANSACTIONS + " to  print transactions");
-    System.out.println(SHOW_MEMBERS + " to  print members");
-    System.out.println(SHOW_BOOKS + " to  print books");
+    System.out.println(SHOW_CLIENTS + " to  print members");
+    System.out.println(DISPLAY_ALL_CLIENTS + " to  print books");
     System.out.println(SAVE + " to  save data");
     System.out.println(RETRIEVE + " to  retrieve");
     System.out.println(HELP + " for help");
@@ -125,61 +125,14 @@ public class UserInterface {
     System.out.println(result);
   }
 
- public void addBooks() {
-    Book result;
-    do {
-      String title = getToken("Enter  title");
-      String bookID = getToken("Enter id");
-      String author = getToken("Enter author");
-      result = library.addBook(title, author, bookID);
-      if (result != null) {
-        System.out.println(result);
-      } else {
-        System.out.println("Book could not be added");
-      }
-      if (!yesOrNo("Add more books?")) {
-        break;
-      }
-    } while (true);
-  }
-  public void issueBooks() {
-         System.out.println("Dummy Action");
-  }
-  public void renewBooks() {
-      System.out.println("Dummy Action");
-  }
-
-  public void showBooks() {
-      Iterator allBooks = library.getBooks();
-      while (allBooks.hasNext()){
-	  Book book = (Book)(allBooks.next());
-          System.out.println(book.toString());
-      }
-  }
-
   public void showClients() {
-      Iterator allClients = warehouse.getClients();
+      Iterator allClients = warehouse.getAllClients();
       while (allClients.hasNext()){
 	  Client client = (Client)(allClients.next());
           System.out.println(client.toString());
       }
   }
 
-  public void returnBooks() {
-      System.out.println("Dummy Action");
-  }
-  public void removeBooks() {
-      System.out.println("Dummy Action");   
-  }
-  public void placeHold() {
-      System.out.println("Dummy Action");   
-  }
-  public void removeHold() {
-      System.out.println("Dummy Action");   
-  }
-  public void processHolds() {
-      System.out.println("Dummy Action");   
-  }
   public void getTransactions() {
       System.out.println("Dummy Action");   
   }
