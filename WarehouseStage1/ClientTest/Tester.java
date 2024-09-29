@@ -55,15 +55,14 @@ public class Tester {
       Product product3 = new Product("P103", "Headphones", 200.00);
        
        // Adding products to the wishlist
-       wishList wishList= new wishList.instance();
+       //wishList wishList= new wishList.instance();
         wishList.addProductToWishlist(product1, 1);  // Adding 1 Laptop
         wishList.addProductToWishlist(product2, 2);  // Adding 2 Smartphones
         wishList.addProductToWishlist(product1, 1);  // Adding 1 more Laptop
 
-     System.out.println(c1.getName() + " should be null");
-     b1.issue(c1); 
-     System.out.println(c1.getPhone() + " should be m1");
-     c1.(m2); // try issuing to someone else
+     System.out.println(c1.addProductToWishlist(product1,8) + " should be null");
+     c1.displayWishlist(); 
+     System.out.println(c1.checkProductInWishlist() + " should be product1");
      System.out.println(b1.getBorrower() + " still issue to m1");
      System.out.println(b1.getDueDate() + " check due date as per Business Rule"); 
      System.out.println(b1.returnBook()); 
