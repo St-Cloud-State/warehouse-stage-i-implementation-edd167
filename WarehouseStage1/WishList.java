@@ -46,7 +46,7 @@ private void readObject(java.io.ObjectInputStream input) {
     }
   }
   public String toString() {
-    return clients.toString();
+    return wishListItem.toString();
   }
 
     // LinkedList to store the products in the wishlist
