@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.lang;
 public class ClientList implements Serializable {
   private static final long serialVersionUID = 1L;
   private List clients = new LinkedList();
@@ -8,7 +9,7 @@ public class ClientList implements Serializable {
   }
   public static ClientList instance() {
     if (clientList == null) {
-      return (clientList = new ClientListList());
+      return (clientList = new ClientList());
     } else {
       return clientList;
     }
