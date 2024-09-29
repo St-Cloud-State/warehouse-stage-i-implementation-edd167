@@ -54,24 +54,19 @@ public class Tester {
       Product product2 = new Product("P102", "Smartphone", 800.00);
       Product product3 = new Product("P103", "Headphones", 200.00);
        
-       // Adding products to the wishlist
-       //wishList wishList= new wishList.instance();
-        wishList.addProductToWishlist(product1, 1);  // Adding 1 Laptop
-        wishList.addProductToWishlist(product2, 2);  // Adding 2 Smartphones
-        wishList.addProductToWishlist(product1, 1);  // Adding 1 more Laptop
-
-     System.out.println(c1.addProductToWishlist(product1,8) + " should be null");
-     c1.displayWishlist(); 
-     System.out.println(c1.checkProductInWishlist() + " should be product1");
-     System.out.println(b1.getBorrower() + " still issue to m1");
-     System.out.println(b1.getDueDate() + " check due date as per Business Rule"); 
-     System.out.println(b1.returnBook()); 
-     System.out.println(b1.getBorrower() + " should be null");
-     System.out.println(b1.getDueDate() + " should be null");
-     Iterator books = catalog.getBooks();
-     System.out.println("List of books");
-     while (books.hasNext()){
-       System.out.println(books.next());
+     System.out.println(c1.displayWishlist() +"should be null");
+     c1.addProductToWishlist(product1,8);
+     System.out.println(product1.getName() + " should be c1 name");
+     System.out.println(product1.getAddress() + " shoud be address of c1");
+     System.out.println(product1.getPhone() + " should be phone number of c1"); 
+     System.out.println(c2.displayWishlist()+"shoud be null"); 
+     c2.addProductToWishlist(product3,5);
+     System.out.println(product3.getName() + " should be c2 name");
+     System.out.println(product3.getPhone() + " should be c2 phone");
+     Iterator clients = clientList.getAllClients();
+     System.out.println("List of all clients");
+     while (clients.hasNext()){
+       System.out.println(clients.next());
      }
 	 if (yesOrNo("Would you like to save the catalog")) {
 		 try {
