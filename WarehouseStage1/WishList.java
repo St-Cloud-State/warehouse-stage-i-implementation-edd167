@@ -114,27 +114,4 @@ private void readObject(java.io.ObjectInputStream input) {
     }
   }
   
-    // Main method for testing
-    public static void main(String[] args) {
-        WishList wishList = new WishList();
-
-        // Creating some sample products using an external Product class
-        Product product1 = new Product("P101", "Laptop", 1500.00);
-        Product product2 = new Product("P102", "Smartphone", 800.00);
-        Product product3 = new Product("P103", "Headphones", 200.00);
-
-        // Adding products to the wishlist
-        wishList.addProductToWishlist(product1, 1);  // Adding 1 Laptop
-        wishList.addProductToWishlist(product2, 2);  // Adding 2 Smartphones
-        wishList.addProductToWishlist(product1, 1);  // Adding 1 more Laptop
-
-        // Displaying the wishlist
-        wishList.displayWishlist();
-
-        // Updating product quantity in the wishlist
-        wishList.updateProductQuantity(product2, 5);  // Updating Smartphone quantity to 5
-
-        // Displaying the wishlist again
-        wishList.displayWishlist();
-    }
 }
