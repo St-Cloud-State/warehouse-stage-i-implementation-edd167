@@ -146,7 +146,7 @@ public class UserInterface {
   private void retrieve() {
     try {
       Warehouse tempWarehouse = Warehouse.retrieve();
-      if (tempLibrary != null) {
+      if (tempWarehouse != null) {
         System.out.println(" The Warehouse has been successfully retrieved from the file WarehouseData \n" );
         warehouse = tempWarehouse;
       } else {
