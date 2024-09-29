@@ -1,5 +1,5 @@
 /*
-This is a test script that checks the book class and catalog class along with a dummy member class.
+This is a test script that checks the //book class and catalog class along with a dummy member class//.
  The books can be issued and returned. The catalog can be saved to disk (serialized) and uploaded 
  from disk (deserialized). 
  */

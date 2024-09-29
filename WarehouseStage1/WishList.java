@@ -27,6 +27,27 @@ public class WishList {
             return product + ", Quantity: " + quantity;
         }
     }
+private void readObject(java.io.ObjectInputStream input) {
+    try {
+      if (WishListItem!= null) {
+        return;
+      } else {
+        input.defaultReadObject();
+        if (wishListItem== null) {
+          wishListItem = (wishListItem) input.readObject();
+        } else {
+          input.readObject();
+        }
+      }
+    } catch(IOException ioe) {
+      ioe.printStackTrace();
+    } catch(ClassNotFoundException cnfe) {
+      cnfe.printStackTrace();
+    }
+  }
+  public String toString() {
+    return clients.toString();
+  }
 
     // LinkedList to store the products in the wishlist
     private LinkedList<WishListItem> wishListItems;
@@ -84,7 +105,15 @@ public class WishList {
         }
         return false;
     }
-
+  private void writeObject(java.io.ObjectOutputStream output) {
+    try {
+      output.defaultWriteObject();
+      output.writeObject(clientList);
+    } catch(IOException ioe) {
+      ioe.printStackTrace();
+    }
+  }
+  
     // Main method for testing
     public static void main(String[] args) {
         WishList wishList = new WishList();

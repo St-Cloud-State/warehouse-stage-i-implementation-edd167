@@ -1,5 +1,5 @@
 /*
-This is a test script that checks the Client class and ClientList class along with a dummy product class. 
+This is a test script that checks the Client class and ClientList class,WishList along with a dummy product class. 
  */
 import java.util.*;
 import java.text.*;
@@ -30,12 +30,12 @@ public class Tester {
   }
   public static void main(String[] s) {
 	
-     Book b1 = new Book("qq", "ww", "b1");
-     Book b2 = new Book("ee", "rr", "b2");
+     Client c1 = new Client("edwin", "1st ave NE", "673837");
+     Client c2 = new Client("Ian", "2nd Ave SE", "26538303");
      
 	 if (yesOrNo("Would you like to load the ClientList")) {
 		try {
-			FileInputStream file = new FileInputStream("CatData");
+			FileInputStream file = new FileInputStream("ClientListData");
 			ObjectInputStream input = new ObjectInputStream(file);
 			input.readObject(); 
 		} catch(IOException ioe) {
@@ -49,8 +49,15 @@ public class Tester {
      ClientList clientList = ClientList.instance();
 	 clientList.insertClient(c1);
      clientList.insertClient(c2);
-     Client c1 = new Client("c1"); 
-     Client c2 = new Client("c2");
+      Product product1 = new Product("P101", "Laptop", 1500.00);
+      Product product2 = new Product("P102", "Smartphone", 800.00);
+      Product product3 = new Product("P103", "Headphones", 200.00);
+       
+       // Adding products to the wishlist
+        wishList.addProductToWishlist(product1, 1);  // Adding 1 Laptop
+        wishList.addProductToWishlist(product2, 2);  // Adding 2 Smartphones
+        wishList.addProductToWishlist(product1, 1);  // Adding 1 more Laptop
+        
      System.out.println(c1.getName() + " should be null");
      b1.issue(c1); 
      System.out.println(c1.getPhone() + " should be m1");
