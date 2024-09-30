@@ -42,8 +42,8 @@ public class Warehouse implements Serializable {
     return clientList.getClients();
   }
 
-  public Iterator<WishListItem> getWishlistItems() {
-    return wishListItems.getWishlistItems();
+  public Iterator<wishListItem> getWishlistItems() {
+    return wishListItem.getWishListItems();
   }
 
   public static Warehouse retrieve() {

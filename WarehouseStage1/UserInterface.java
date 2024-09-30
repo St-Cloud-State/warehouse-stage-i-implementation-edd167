@@ -146,7 +146,7 @@ public class UserInterface {
       Iterator wishListItems = warehouse.getWishlistItems();
       while (wishListItems.hasNext()){
 	  WishList wishItem = (wishItem)(wishListItems.next());
-          System.out.println(WishListItem.toString());
+          System.out.println(wishListItems.toString());
       }
   }
 
