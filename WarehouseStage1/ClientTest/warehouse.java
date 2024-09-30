@@ -29,12 +29,12 @@ public class Warehouse implements Serializable {
   }
 
   public boolean orderProduct(String productId, int quantity) {
-    Product product = clientList.search(productId);
+    Product product = wishList.search(productId);
     if (product == null) {
       wishList.addProduct(productId, quantity);
       return false;
     }
-    product.reduceQuantity(quantity);
+    product.IncreaseQuantity(quantity);
     return true;
   }
 

@@ -10,14 +10,14 @@ public class UserInterface {
   private static final int ADD_PRODUCT_TO WISHLIST= 2;
   private static final int DISPLAY_ALL_CLIENTS= 3;
   private static final int DISPLAY_PRODUCTS_IN_WISHLIST = 4;
-  private static final int RENEW_BOOKS = 5;
-  private static final int REMOVE_BOOKS = 6;
-  private static final int PLACE_HOLD = 7;
-  private static final int REMOVE_HOLD = 8;
-  private static final int PROCESS_HOLD = 9;
+  private static final int ADD_PRODUCT_TO_CATALOG = 5;
+  private static final int REMOVE_PRODUCT_FROM_CATALOG = 6;
+  private static final int REMOVE_PRODUCT_FROM_WISHLIST = 7;
+  private static final int PLACE_AN_ORDER = 8;
+  private static final int PRINT_INVOICE = 9;
   private static final int GET_TRANSACTIONS = 10;
-  private static final int SHOW_MEMBERS = 11;
-  private static final int SHOW_BOOKS = 12;
+  private static final int SHOW_CLIENT_BY_ID = 11;
+  private static final int SHOW_PRODUCTS= 12;
   private static final int SAVE = 13;
   private static final int RETRIEVE = 14;
   private static final int HELP = 15;
@@ -107,7 +107,7 @@ public class UserInterface {
     System.out.println(PRINT_INVOICE+ " to  print an invoice");
     System.out.println(GET_TRANSACTIONS + " to  print all transactions");
     System.out.println(SHOW_CLIENTS_BY_ID + " to  print members by ID");
-    System.out.println(DISPLAY_ALL_CLIENTS + " to  print books");
+    System.out.println(SHOW_PRODUCTS + " to  print books");
     System.out.println(SAVE + " to  save data");
     System.out.println(RETRIEVE + " to  retrieve");
     System.out.println(HELP + " for help");
@@ -123,6 +123,16 @@ public class UserInterface {
       System.out.println("Could not add client");
     }
     System.out.println(result);
+  }
+
+  public void orderProduct() {
+    String id = getToken("Enter product id");
+    int quantity = getNumber("Enter quantity");
+    if (warehouse.orderProduct(id, quantity)) {
+      System.out.println("Product ordered successfully");
+    } else {
+      System.out.println("Product out of stock, added to waitlist");
+    }
   }
 
   public void showClients() {

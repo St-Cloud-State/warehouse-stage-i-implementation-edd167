@@ -29,56 +29,50 @@ public class Tester {
 			return true;
   }
   public static void main(String[] s) {
-	
-     Client c1 = new Client("edwin", "1st ave NE", "673837");
-     Client c2 = new Client("Ian", "2nd Ave SE", "26538303");
-     Client c3 =new Client ("maikara","3rd st N","53983890");
-	 if (yesOrNo("Would you like to load the ClientList")) {
-		try {
-			FileInputStream file = new FileInputStream("ClientListData");
-			ObjectInputStream input = new ObjectInputStream(file);
-			input.readObject(); 
-		} catch(IOException ioe) {
-			ioe.printStackTrace();
-			 
-		} catch(ClassNotFoundException cnfe) {
-			cnfe.printStackTrace();
-			 
-		}   
-	 }
-     ClientList clientList = ClientList.instance();
-	 clientList.insertClient(c1);
-     clientList.insertClient(c2);
-     clientList.insertClient(c2);
-      Product product1 = new Product("P101", "Laptop", 1500.00);
-      Product product2 = new Product("P102", "Smartphone", 800.00);
-      Product product3 = new Product("P103", "Headphones", 200.00);
-       
-     System.out.println(c1.displayWishList() +"should be null");
-     c1.addProductToWishlist(product1,8);
-     System.out.println(product1.getName() + " should be c1 name");
-     System.out.println(product1.getAddress() + " shoud be address of c1");
-     System.out.println(product1.getPhone() + " should be phone number of c1"); 
-     System.out.println(c2.displayWishList()+"shoud be null"); 
-     c2.addProductToWishlist(product3,5);
-     System.out.println(product3.getName() + " should be c2 name");
-     System.out.println(product3.getPhone() + " should be c2 phone");
-     c2.addProductToWishlist(product2,6);
-     System.out.println(c2.displayWishList()+"should be product2 and product1");
-     System.out.println(product2.getPhone() + " should be phone number of c2");
-     Iterator clients = clientList.getAllClients();
-     System.out.println("List of all clients");
-     while (clients.hasNext()){
-       System.out.println(clients.next());
-     }
-	 if (yesOrNo("Would you like to save the catalog")) {
-		 try {
-			FileOutputStream file = new FileOutputStream("CatData");
-			ObjectOutputStream output = new ObjectOutputStream(file);
-			output.writeObject(catalog);
-		} catch(IOException ioe) {
-			ioe.printStackTrace();
-        }
-	}
+	 Warehouse warehouse = Warehouse.instance();
+
+    Client c1 = new Client("edwin", "1st Ave N","657647");
+    Client c2 = new Client("maikara", "3rd St SE","67488948");
+
+    warehouse.addClient(c1.getName(), c1.getPhone(), c1.getAddress());
+    warehouse.addClient(c2.getName(), c2.getPhone(), c2.getAddress());
+
+    System.out.println("client list:");
+    Iterator<Client> client = warehouse.getClients();
+    while (clients.hasNext()) {
+      System.out.println(clients.next());
+    }
+
+    if (yesOrNo("Would you like to order a product?")) {
+      String productId = getToken("Enter product id");
+      int quantity = Integer.parseInt(getToken("Enter quantity"));
+      if (warehouse.orderProduct(productId, quantity)) {
+        System.out.println("Product ordered successfully");
+      } else {
+        System.out.println("Product out of stock, added to wishlist");
+      }
+    }
+
+    System.out.println("Current Products:");
+    products = warehouse.getProducts();
+    while (products.hasNext()) {
+      System.out.println(products.next());
+    }
+
+    System.out.println("WishList:");
+    Iterator<WishlistItem> wishList = warehouse.getWaitlist();
+    while (wishList.hasNext()) {
+      System.out.println(wishList.next());
+    }
+
+    if (yesOrNo("Would you like to save the warehouse data?")) {
+      if (Warehouse.save()) {
+        System.out.println("Warehouse data saved successfully");
+      } else {
+        System.out.println("Error saving warehouse data");
+      }
+    }
   }
+}
+   
 }
