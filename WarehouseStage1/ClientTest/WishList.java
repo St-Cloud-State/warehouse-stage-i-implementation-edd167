@@ -1,9 +1,15 @@
 import java.util.*;
 import java.io.*;
-public class WishList {
+
+public class WishList implements Serializable {
+
+    // Serial version ID (needed for Serializable)
+    private static final long serialVersionUID = 1L;
 
     // Class to represent an entry in the wishlist (product + quantity)
-    public static class WishListItem {
+    public static class WishListItem implements Serializable {
+        private static final long serialVersionUID = 1L;
+
         private Product product;
         private int quantity;
 
@@ -29,27 +35,6 @@ public class WishList {
             return product + ", Quantity: " + quantity;
         }
     }
-private void readObject(java.io.ObjectInputStream input) {
-    try {
-      if (WishListItem!= null) {
-        return;
-      } else {
-        input.defaultReadObject();
-        if (wishListItem== null) {
-          wishListItem = (wishListItem) input.readObject();
-        } else {
-          input.readObject();
-        }
-      }
-    } catch(IOException ioe) {
-      ioe.printStackTrace();
-    } catch(ClassNotFoundException cnfe) {
-      cnfe.printStackTrace();
-    }
-  }
-  public String toString() {
-    return wishListItem.toString();
-  }
 
     // LinkedList to store the products in the wishlist
     private LinkedList<WishListItem> wishListItems;
@@ -87,7 +72,7 @@ private void readObject(java.io.ObjectInputStream input) {
     }
 
     // Method to display all products in the wishlist with quantities
-    public void displayWishlist() {
+    public void displayWishList() {
         if (wishListItems.isEmpty()) {
             System.out.println("Wishlist is empty.");
         } else {
@@ -107,13 +92,21 @@ private void readObject(java.io.ObjectInputStream input) {
         }
         return false;
     }
-  private void writeObject(java.io.ObjectOutputStream output) {
-    try {
-      output.defaultWriteObject();
-      output.writeObject(clientList);
-    } catch(IOException ioe) {
-      ioe.printStackTrace();
+
+    // Serialization: Writing object to stream
+    private void writeObject(ObjectOutputStream output) throws IOException {
+        output.defaultWriteObject();
+        output.writeObject(wishListItems); // Write the list of items
     }
-  }
-  
+
+    // Deserialization: Reading object from stream
+    private void readObject(ObjectInputStream input) throws IOException, ClassNotFoundException {
+        input.defaultReadObject();
+        wishListItems = (LinkedList<WishListItem>) input.readObject(); // Read the list of items
+    }
+
+    @Override
+    public String toString() {
+        return wishListItems.toString();
+    }
 }

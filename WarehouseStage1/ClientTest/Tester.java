@@ -54,17 +54,17 @@ public class Tester {
       Product product2 = new Product("P102", "Smartphone", 800.00);
       Product product3 = new Product("P103", "Headphones", 200.00);
        
-     System.out.println(c1.displayWishlist() +"should be null");
+     System.out.println(c1.displayWishList() +"should be null");
      c1.addProductToWishlist(product1,8);
      System.out.println(product1.getName() + " should be c1 name");
      System.out.println(product1.getAddress() + " shoud be address of c1");
      System.out.println(product1.getPhone() + " should be phone number of c1"); 
-     System.out.println(c2.displayWishlist()+"shoud be null"); 
+     System.out.println(c2.displayWishList()+"shoud be null"); 
      c2.addProductToWishlist(product3,5);
      System.out.println(product3.getName() + " should be c2 name");
      System.out.println(product3.getPhone() + " should be c2 phone");
      c2.addProductToWishlist(product2,6);
-     System.out.println(c2.displayWishlist()+"should be product2 and product1");
+     System.out.println(c2.displayWishList()+"should be product2 and product1");
      System.out.println(product2.getPhone() + " should be phone number of c2");
      Iterator clients = clientList.getAllClients();
      System.out.println("List of all clients");
