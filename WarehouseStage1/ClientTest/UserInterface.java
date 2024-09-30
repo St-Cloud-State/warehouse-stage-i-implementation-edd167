@@ -136,7 +136,7 @@ public class UserInterface {
   }
 
   public void showClients() {
-      Iterator allClients = warehouse.getClients();
+      Iterator allClients = warehouse.getAllClients();
       while (allClients.hasNext()){
 	  Client client = (Client)(allClients.next());
           System.out.println(client.toString());
