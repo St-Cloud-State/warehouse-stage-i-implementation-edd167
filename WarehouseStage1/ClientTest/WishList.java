@@ -6,9 +6,8 @@ public class WishList implements Serializable {
   private List<wishListItem> items = new LinkedList<>();
   private static WishList wishlist;
 
-  private WishList() {}
 
-  public static Wishlist instance() {
+  public static WishList instance() {
     if (wishlist == null) {
       return (wishlist = new WishList());
     } else {
@@ -39,13 +38,13 @@ public class WishList implements Serializable {
 
   private void writeObject(ObjectOutputStream output) throws IOException {
     output.defaultWriteObject();
-    output.writeObject(waitlist);
+    output.writeObject(wishList);
   }
 
   private void readObject(ObjectInputStream input) throws IOException, ClassNotFoundException {
     input.defaultReadObject();
-    if (wis == null) {
-      wishlist = (wishlist) input.readObject();
+    if (wishList == null) {
+      wishList = (wishlist) input.readObject();
     } else {
       input.readObject();
     }

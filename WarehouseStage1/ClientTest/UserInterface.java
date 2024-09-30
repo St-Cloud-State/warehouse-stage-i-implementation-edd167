@@ -131,7 +131,7 @@ public class UserInterface {
     if (warehouse.orderProduct(id, quantity)) {
       System.out.println("Product ordered successfully");
     } else {
-      System.out.println("Product out of stock, added to waitlist");
+      System.out.println("Product out of stock, added to wishlist");
     }
   }
 

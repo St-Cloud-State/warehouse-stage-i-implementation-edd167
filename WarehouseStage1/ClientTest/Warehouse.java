@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.util.iterator;
 public class Warehouse implements Serializable {
   private static final long serialVersionUID = 1L;
   private ClientList clientList;
