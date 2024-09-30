@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.lang;
 public class ClientList implements Serializable {
   private static final long serialVersionUID = 1L;
   private List clients = new LinkedList();

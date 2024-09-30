@@ -1,30 +1,45 @@
 import java.util.*;
 import java.io.*;
-public class Product implements Serializable {
-public  Product (String id, String productName, double price) {
-    this.id =id;
-    this.productName = productName;
-    this.price = price;
-   
-   public String getproductName(){
-    return productName;
-   }
 
-   public double getprice(){
-    return price;
-   }
-  public String getId() {
-    return id;
-  }
-  public void setProductName(String ProductName) {
-    productNmame = newProductName;
-  }
-  public void setprice(String newprice) {
-    price = newprice;
-  }
-   public String toString() {
-    String string = "product name " + productName + "product price" + price + " productID " + id ;
-    return string;
-  
-  }
+public class Product implements Serializable {
+    private String id;
+    private String productName;
+    private double price;
+
+    // Constructor
+    public Product(String id, String productName, double price) {
+        this.id = id;
+        this.productName = productName;
+        this.price = price;
+    }
+
+    // Getter for productName
+    public String getProductName() {
+        return productName;
+    }
+
+    // Getter for price
+    public double getPrice() {
+        return price;
+    }
+
+    // Getter for id
+    public String getId() {
+        return id;
+    }
+
+    // Setter for productName
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    // Setter for price (parsing string to double)
+    public void setPrice(String newprice) {
+        this.price = Double.parseDouble(newprice);
+    }
+
+    // toString method to represent the product as a string
+    public String toString() {
+        return "Product Name: " + productName + " | Product Price: " + price + " | Product ID: " + id;
+    }
 }
