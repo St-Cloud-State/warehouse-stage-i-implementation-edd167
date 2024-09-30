@@ -142,6 +142,13 @@ public class UserInterface {
           System.out.println(client.toString());
       }
   }
+   public void showProductOnWishList() {
+      Iterator wishListItems = warehouse.getWishlistItems();
+      while (wishListItems.hasNext()){
+	  WishList wishItem = (wishItem)(wishListItems.next());
+          System.out.println(WishListItem.toString());
+      }
+  }
 
   public void getTransactions() {
       System.out.println("Dummy Action");   
