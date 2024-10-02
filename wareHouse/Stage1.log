@@ -1,0 +1,285 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20240930173134
+Username: IANPC\IanS2
+RunAs User: IANPC\IanS2
+**********************
+Transcript started, output file is Stage1.log
+PS C:\Users\IanS2\Documents\SCSU Classes\Fall 2024\CSCI 530\Stage 1\warehouse-stage-i-implementation-IanSpencer22\WareStage1> Start-Transcript -Path "Stage1.log"     
+Transcript started, output file is Stage1.log
+PS C:\Users\IanS2\Documents\SCSU Classes\Fall 2024\CSCI 530\Stage 1\warehouse-stage-i-implementation-IanSpencer22\WareStage1> java Stage1Tester.java
+Adding clients...
+Client list after adding clients:
+ Id: C3 Name: edwin Address: 1st Ave N Phone: 657647
+ Id: C4 Name: maikara Address: 3rd St SE Phone: 67488948
+Would you like to add a new client? (Y|y)[es] or anything else for no
+y
+Enter client name
+Ian
+Enter client address
+18 West Ave
+Enter client phone
+192383882
+Client list after adding a new client:
+ Id: C3 Name: edwin Address: 1st Ave N Phone: 657647
+ Id: C4 Name: maikara Address: 3rd St SE Phone: 67488948
+ Id: C5 Name: Ian Address: 18 West Ave Phone: 192383882
+Current Products:
+Product[name=Product1, id=p1, quantity=10]
+Product[name=Product2, id=p2, quantity=5]
+Product[name=Product3, id=p3, quantity=20]
+Would you like to add a new product? (Y|y)[es] or anything else for no
+y
+Enter product name
+Product4 
+Enter product id
+p4
+Enter product quantity
+3
+Product list after adding a new product:
+Product[name=Product1, id=p1, quantity=10]
+Product[name=Product2, id=p2, quantity=5]
+Product[name=Product3, id=p3, quantity=20]
+Product[name=Product4, id=p4, quantity=3]
+Would you like to order a product? (Y|y)[es] or anything else for no
+n
+Testing waitlist functionality:
+Waitlist:
+Testing wishlist functionality:
+Would you like to add a product to a client's wishlist? (Y|y)[es] or anything else for no
+Enter client id
+C3
+Enter product id
+p2
+Item added to wishlist
+Wishlist items:
+WishlistItem[clientId=C3, productId=p2]
+Warehouse data saved successfully
+PS C:\Users\IanS2\Documents\SCSU Classes\Fall 2024\CSCI 530\Stage 1\warehouse-stage-i-implementation-IanSpencer22\WareStage1> java UserInterface.java
+Look for saved data and use it? (Y|y)[es] or anything else for no
+y
+File doesn't exist; creating new warehouse
+Enter a number between 0 and 11 as explained below:
+0 to Exit
+17 for help
+
+1 to add a client
+2 to display all clients
+3 to show client by ID
+4 to add a product to catalog
+5 to remove a product from catalog
+6 to show products
+7 to add a product to wishlist
+8 to display products in wishlist
+9 to remove a product from wishlist
+10 to show waitlist
+11 to remove an item from the waitlist
+12 to place an order
+13 to print invoice
+14 to get transactions
+15 to save data
+16 to retrieve data
+Enter command:17 for help
+2
+ Id: C3 Name: edwin Address: 1st Ave N Phone: 657647    
+ Id: C4 Name: maikara Address: 3rd St SE Phone: 67488948
+ Id: C5 Name: Ian Address: 18 West Ave Phone: 192383882 
+Enter command:17 for help
+1
+Enter client name
+Andy
+Enter client address
+West 18th Street, MN
+Enter client phone
+1234565789 
+Client added successfully
+Enter command:17 for help
+1
+Enter client name
+Sarah 
+Enter client address
+15th South Street
+Enter client phone
+8829198237
+Client added successfully
+Enter command:17 for help
+2
+ Id: C3 Name: edwin Address: 1st Ave N Phone: 657647
+ Id: C4 Name: maikara Address: 3rd St SE Phone: 67488948
+ Id: C5 Name: Ian Address: 18 West Ave Phone: 192383882
+ Id: C1 Name: Andy Address: West 18th Street, MN Phone: 1234565789
+ Id: C2 Name: Sarah Address: 15th South Street Phone: 8829198237
+Enter command:17 for help
+6
+Product[name=Product1, id=p1, quantity=10]
+Product[name=Product2, id=p2, quantity=5]
+Product[name=Product3, id=p3, quantity=20]
+Product[name=Product4, id=p4, quantity=3]
+Enter command:17 for help
+4
+Enter product name
+Product5
+Enter product id
+p5
+Enter quantity
+25 
+Product[name=Product5, id=p5, quantity=25]
+Enter command:17 for help
+4
+Enter product name
+Wood
+Enter product id
+p6
+Enter quantity
+90
+Product[name=Wood, id=p6, quantity=90]
+Enter command:17 for help
+4
+Enter product name
+Computer
+p7
+Enter quantity
+7
+Product[name=Computer, id=p7, quantity=7]
+Enter command:17 for help
+6
+Product[name=Product1, id=p1, quantity=10]
+Product[name=Product2, id=p2, quantity=5]
+Product[name=Product3, id=p3, quantity=20]
+Product[name=Product4, id=p4, quantity=3]
+Product[name=Product5, id=p5, quantity=25]
+Product[name=Wood, id=p6, quantity=90]
+Product[name=Computer, id=p7, quantity=7]
+Enter command:17 for help
+8
+WishlistItem[clientId=C3, productId=p2]
+Enter command:17 for help
+7
+Enter client id
+C3
+Enter product id
+p6
+Item added to wishlist
+Product[name=Computer, id=p7, quantity=7]
+Enter command:17 for help
+6
+Product[name=Product1, id=p1, quantity=10]
+Product[name=Product2, id=p2, quantity=5]
+Product[name=Product3, id=p3, quantity=20]
+Product[name=Product4, id=p4, quantity=3]
+Product[name=Product5, id=p5, quantity=25]
+Product[name=Wood, id=p6, quantity=90]
+Product[name=Computer, id=p7, quantity=7]
+Enter command:17 for help
+8
+WishlistItem[clientId=C3, productId=p2]
+Enter command:17 for help
+7
+Enter client id
+C3
+Enter product id
+p6
+Item added to wishlist
+6
+Product[name=Product1, id=p1, quantity=10]
+Product[name=Product2, id=p2, quantity=5]
+Product[name=Product3, id=p3, quantity=20]
+Product[name=Product4, id=p4, quantity=3]
+Product[name=Product5, id=p5, quantity=25]
+Product[name=Wood, id=p6, quantity=90]
+Product[name=Computer, id=p7, quantity=7]
+Enter command:17 for help
+8
+WishlistItem[clientId=C3, productId=p2]
+Enter command:17 for help
+7
+Enter client id
+C3
+Enter product id
+p6
+Item added to wishlist
+Product[name=Product3, id=p3, quantity=20]
+Product[name=Product4, id=p4, quantity=3]
+Product[name=Product5, id=p5, quantity=25]
+Product[name=Wood, id=p6, quantity=90]
+Product[name=Computer, id=p7, quantity=7]
+Enter command:17 for help
+8
+WishlistItem[clientId=C3, productId=p2]
+Enter command:17 for help
+7
+Enter client id
+C3
+Enter product id
+p6
+Item added to wishlist
+WishlistItem[clientId=C3, productId=p2]
+Enter command:17 for help
+7
+Enter client id
+C3
+Enter product id
+p6
+Item added to wishlist
+Enter command:17 for help
+7
+Enter client id
+C3
+Enter product id
+p6
+Item added to wishlist
+Enter command:17 for help
+7
+Enter client id
+Enter command:17 for help
+7
+Enter client id
+C1
+Enter product id
+p1
+Item added to wishlist
+Enter command:17 for help
+C1
+Enter product id
+p1
+Item added to wishlist
+Enter command:17 for help
+Item added to wishlist
+Enter command:17 for help
+7
+Enter client id
+C3
+Enter product id
+7
+Enter client id
+C3
+Enter product id
+p5
+Enter product id
+p5
+Item added to wishlist
+Enter command:17 for help
+p5
+Item added to wishlist
+Enter command:17 for help
+8
+Item added to wishlist
+Enter command:17 for help
+8
+Enter command:17 for help
+8
+WishlistItem[clientId=C3, productId=p2]
+8
+WishlistItem[clientId=C3, productId=p2]
+WishlistItem[clientId=C3, productId=p2]
+WishlistItem[clientId=C3, productId=p6]
+WishlistItem[clientId=C3, productId=p6]
+WishlistItem[clientId=C1, productId=p1]
+WishlistItem[clientId=C3, productId=p5]
+Enter command:17 for help
+0
+PS C:\Users\IanS2\Documents\SCSU Classes\Fall 2024\CSCI 530\Stage 1\warehouse-stage-i-implementation-IanSpencer22\WareStage1> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20240930173459
+**********************
