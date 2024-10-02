@@ -38,16 +38,6 @@ public class Tester {
       System.out.println(products.next());
     }
 
-    if (yesOrNo("Would you like to order a product?")) {
-      String productId = getToken("Enter product id");
-      int quantity = Integer.parseInt(getToken("Enter quantity"));
-      if (warehouse.orderProduct(productId, quantity)) {
-        System.out.println("Product ordered successfully");
-      } else {
-        System.out.println("Product out of stock, added to waitlist");
-      }
-    }
-
     System.out.println("Current Products:");
     products = warehouse.getProducts();
     while (products.hasNext()) {

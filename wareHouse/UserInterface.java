@@ -139,16 +139,6 @@ public class UserInterface {
     }
   }
 
-  public void orderProduct() {
-    String clientId = getToken("Enter client id");
-    String productId = getToken("Enter product id");
-    int quantity = getNumber("Enter quantity");
-    if (warehouse.orderProduct(clientId, productId, quantity)) {
-      System.out.println("Product ordered successfully");
-    } else {
-      System.out.println("Product out of stock, added to wishlist");
-    }
-  }
 
   public void showClients() {
     Iterator<Client> clients = warehouse.getAllClients();

@@ -1,12 +1,9 @@
 import java.util.*;
 import java.io.*;
-import java.util.Iterator; // Add this if not already present
-import java.util.LinkedList; // Add this if not already present
-import java.util.List; // Add this if not already present
+import java.util.Iterator;
+import java.util.LinkedList; 
+import java.util.List; 
 
-// Remove these incorrect import statements
-// import WareStage1.Wishlist; // Correct import statement
-// import WareStage1.WishlistItem; // Correct import statement
 
 public class Warehouse implements Serializable {
   private static final long serialVersionUID = 1L;
@@ -37,16 +34,6 @@ public class Warehouse implements Serializable {
       return client;
     }
     return null;
-  }
-
-  public boolean orderProduct(String clientId, String productId, int quantity) {
-    Product product = catalog.search(productId);
-    if (product == null || product.getQuantity() < quantity) {
-      wishlist.addItem(clientId, productId);
-      return false;
-    }
-    product.reduceQuantity(quantity);
-    return true;
   }
 
   public Iterator<Client> getAllClients() {

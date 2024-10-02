@@ -67,20 +67,6 @@ public class Stage1Tester {
     while (products.hasNext()) {
       System.out.println(products.next());
     }
-
-
-    // Test ordering product(s) OR adding it to the wishList if product doesn't exist
-    while (yesOrNo("Would you like to order a product?")) {
-      String clientId = getToken("Enter client id");
-      String productId = getToken("Enter product id");
-      int quantity = Integer.parseInt(getToken("Enter quantity"));
-      if (warehouse.orderProduct(clientId, productId, quantity)) {
-        System.out.println("Product ordered successfully");
-      } else {
-        System.out.println("Product out of stock, added to wishlist");
-      }
-    }
-
     // Test adding a product to a client's wishlist
     System.out.println("Testing wishlist functionality:");
     if (yesOrNo("Would you like to add a product to a client's wishlist?")) {
