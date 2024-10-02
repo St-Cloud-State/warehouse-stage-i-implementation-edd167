@@ -267,9 +267,6 @@ public class UserInterface {
         case REMOVE_PRODUCT_FROM_WISHLIST:
           // Implement removeProductFromWishlist method
           break;
-        case PLACE_AN_ORDER:
-          orderProduct();
-          break;
         case PRINT_INVOICE:
           // Implement generateInvoice method
           break;
