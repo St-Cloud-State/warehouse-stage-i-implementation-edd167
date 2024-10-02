@@ -69,7 +69,7 @@ public class Stage1Tester {
     }
 
 
-    // Test ordering products OR adding it to the wishList if product doesn't exist
+    // Test ordering product(s) OR adding it to the wishList if product doesn't exist
     while (yesOrNo("Would you like to order a product?")) {
       String clientId = getToken("Enter client id");
       String productId = getToken("Enter product id");
